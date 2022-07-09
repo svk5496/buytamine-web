@@ -1,14 +1,29 @@
 {
-  "name": "instaclone-web",
+  "name": "buytamine-web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.5.10",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "graphql": "^16.3.0",
+    "prop-types": "^15.8.1",
+    "react-dom": "^17.0.2",
+    "react-helmet-async": "^1.2.3",
+    "react-hook-form": "^6.15.1",
+    "react-responsive": "^9.0.0-beta.10",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.5",
+    "styled-reset": "^4.3.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react": "^17.0.2"
   }
 }

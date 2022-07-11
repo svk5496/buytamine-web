@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { BiSearchAlt } from "react-icons/bi";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const SideBar = styled.header`
-  width: 200px;
+  min-width: 160px;
+  width: 14vw;
   height: 100%;
   border-right: 1px solid ${(props) => props.theme.borderColor};
   background-color: ${(props) => props.theme.bgColorLight};
@@ -11,27 +13,24 @@ const SideBar = styled.header`
 `;
 
 const MenuContainer = styled.div`
-  display: flex;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
   h1 {
     font-size: 18px;
     padding: 24px 0px;
     cursor: default;
   }
-  span {
+  a {
     margin: 6px 0px;
     padding: 8px 10px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-  }
-  @media screen and (max-width: 1000px) {
-    margin: 0px 10px;
-  }
-  @media screen and (min-width: 1001px) {
-    margin: 0px 60px;
+    text-decoration: none;
+    color: inherit;
   }
 `;
 
@@ -42,15 +41,30 @@ function NutrientSideBar() {
     <SideBar>
       <MenuContainer>
         <h1>영양소</h1>
-        <span>비타민A</span>
-        <span>비타민B</span>
-        <span>비타민C</span>
-        <span>비타민D</span>
-        <span>칼슘</span>
-        <span>철분</span>
-        <span>마그네슘</span>
-        <span>아연</span>
-        <span>프로바이오틱스</span>
+        <Link to={{ search: "?sort=vitaA" }}>
+          <span>비타민A</span>
+        </Link>
+        <Link to={{ search: "?sort=vitaB" }}>
+          <span>비타민B</span>
+        </Link>
+        <Link to={{ search: "?sort=vitaC" }}>
+          <span>비타민C</span>
+        </Link>
+        <Link to={{ search: "?sort=vitaD" }}>
+          <span>비타민D</span>
+        </Link>
+        <Link to={{ search: "?sort=calsium" }}>
+          <span>칼슘</span>
+        </Link>
+        <Link to={{ search: "?sort=magnesium" }}>
+          <span>마그네슘</span>
+        </Link>
+        <Link to={{ search: "?sort=zinc" }}>
+          <span>아연</span>
+        </Link>
+        <Link to={{ search: "?sort=probiotics" }}>
+          <span>프로바이오틱스</span>
+        </Link>
       </MenuContainer>
     </SideBar>
   );

@@ -4,7 +4,7 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 
 const Base = styled.div`
-  width: 98vw;
+  width: 100vw;
   height: 93vh;
 `;
 

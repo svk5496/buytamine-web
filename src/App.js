@@ -14,7 +14,6 @@ import SignUp from "./screens/auth/SignUp";
 import { darkTheme, GlobalStyles, lightTheme } from "./styles";
 import NutrientUpdate from "./screens/data/NutrientUpdate";
 import Login from "./screens/auth/Login";
-import Category from "./screens/public/shop/HealthGoal";
 import HealthGoal from "./screens/public/shop/HealthGoal";
 import Nutrient from "./screens/public/shop/Nutrient";
 

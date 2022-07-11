@@ -13,7 +13,6 @@ const SHeader = styled.header`
 
 const MenuContainer = styled.div`
   display: flex;
-  margin: 0px 60px;
   display: flex;
   align-items: center;
   h1 {

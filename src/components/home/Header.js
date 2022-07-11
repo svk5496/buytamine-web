@@ -30,6 +30,10 @@ const MenuContainer = styled.div`
     font-size: 14px;
     cursor: pointer;
   }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   @media screen and (max-width: 1000px) {
     margin: 0px 10px;
   }
@@ -41,14 +45,26 @@ const MenuContainer = styled.div`
 function Header() {
   // const isLoggedIn = useReactiveVar(isLoggedInVar);
   // const { data } = useUser();
+
   return (
     <SHeader>
       <MenuContainer>
-        <span>건강목표</span>
-        <span>영양소</span>
-        <span>테스트</span>
+        <Link to={routes.healthgoal}>
+          <span>건강목표</span>
+        </Link>
+        <Link to={routes.nutrient}>
+          <span>영양소</span>
+        </Link>
+        <Link>
+          <span>테스트</span>
+        </Link>
       </MenuContainer>
-      <div>Logo</div>
+      <MenuContainer>
+        <Link to={routes.home}>
+          <span>Logo</span>
+        </Link>
+      </MenuContainer>
+
       <MenuContainer>
         <span>로그인</span>
         <span>

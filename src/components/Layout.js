@@ -3,9 +3,19 @@ import Header from "./home/Header";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 
-const Content = styled.main`
-  margin: 0px auto;
+const Base = styled.div`
+  width: 98vw;
+  height: 93vh;
+`;
+
+const ContentBox = styled.div`
   width: 100%;
+  height: 100%;
+`;
+
+const Content = styled.main`
+  width: 100%;
+  height: 100%;
 `;
 
 function Layout({ children }) {
@@ -13,14 +23,14 @@ function Layout({ children }) {
     query: "(max-width:600px)",
   });
   return (
-    <>
+    <Base>
       {isMobile ? null : (
-        <div>
+        <ContentBox>
           <Header />
           <Content>{children}</Content>
-        </div>
+        </ContentBox>
       )}
-    </>
+    </Base>
   );
 }
 

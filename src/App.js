@@ -14,7 +14,9 @@ import SignUp from "./screens/auth/SignUp";
 import { darkTheme, GlobalStyles, lightTheme } from "./styles";
 import NutrientUpdate from "./screens/data/NutrientUpdate";
 import Login from "./screens/auth/Login";
-import Category from "./screens/public/shop/Category";
+import Category from "./screens/public/shop/HealthGoal";
+import HealthGoal from "./screens/public/shop/HealthGoal";
+import Nutrient from "./screens/public/shop/Nutrient";
 
 function App() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
@@ -45,9 +47,14 @@ function App() {
                   <Login />
                 )} */}
               </Route>
-              <Route path={routes.category}>
+              <Route path={routes.healthgoal}>
                 <Layout>
-                  <Category></Category>
+                  <HealthGoal></HealthGoal>
+                </Layout>
+              </Route>
+              <Route path={routes.nutrient}>
+                <Layout>
+                  <Nutrient></Nutrient>
                 </Layout>
               </Route>
 

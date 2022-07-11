@@ -5,16 +5,16 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { darkModeVar, isLoggedInvar, logUserIn } from "../apollo";
-import AuthBottomBox from "../components/auth/AuthBottomBox";
-import AuthButton from "../components/auth/AuthButton";
-import AuthFormBox from "../components/auth/AuthFormBox";
-import AuthFormError from "../components/auth/AuthFormError";
-import AuthInput from "../components/auth/AuthInput";
-import AuthLayout from "../components/auth/AuthLayout";
-import Seperator from "../components/auth/Seperator";
-import PageTitle from "../components/pageTitle";
-import routes from "./routes";
+import { darkModeVar, isLoggedInvar, logUserIn } from "../../apollo";
+import AuthButton from "../../components/auth/AuthButton";
+import AuthBottomBox from "../../components/auth/AuthBottomBox";
+import AuthFormBox from "../../components/auth/AuthFormBox";
+import AuthFormError from "../../components/auth/AuthFormError";
+import AuthInput from "../../components/auth/AuthInput";
+import AuthLayout from "../../components/auth/AuthLayout";
+import Seperator from "../../components/auth/Seperator";
+import PageTitle from "../../components/pageTitle";
+import routes from "../routes";
 
 const FacebookLogin = styled.div`
   color: ${(props) => props.theme.primaryDark};

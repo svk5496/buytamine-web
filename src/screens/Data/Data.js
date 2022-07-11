@@ -73,39 +73,18 @@ function Data() {
 
   const handleClick = () => {
     fetch(
-      `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/${serviceName}/json/1/1000`
+      `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/${serviceName}/json/1/30`
     )
       .then((response) => response.json())
       .then((json) => {
         const products = json.C003.row;
-        console.log(products);
-        // products.map((product) => {
-        //   console.log(product.RAWMTRL_NM);
-        //   uploadProduct({
-        //     variables: {
-        //       brand: product.BSSH_NM,
-        //       howKeep: product.CSTDY_MTHD,
-        //       dispos: product.DISPOS,
-        //       intakeAttention: product.IFTKN_ATNT_MATR_CN,
-        //       lastUpdateDate: product.LAST_UPDT_DTM,
-        //       licenseNo: product.LCNS_NO,
-        //       howTake: product.NTK_MTHD,
-        //       expireDate: product.POG_DAYCNT,
-        //       name: product.PRDLST_NM,
-        //       productListReportNo: product.PRDLST_REPORT_NO,
-        //       productShapeConditionName: product.PRDT_SHAP_CD_NM,
-        //       primaryFunction: product.PRIMARY_FNCLTY,
-        //       prmsDate: product.PRMS_DT,
-        //       rawMaterial: product.RAWMTRL_NM,
-        //       shape: product.SHAP,
-        //       mainStandard: product.STDR_STND,
-        //     },
-        //   });
-        // });
+        setAmines(products);
       });
   };
-  // amines.map((product) => {
-  //   console.log(product);
+  console.log(amines);
+
+  // products.map((product) => {
+  //   console.log(product.RAWMTRL_NM);
   //   uploadProduct({
   //     variables: {
   //       brand: product.BSSH_NM,
@@ -119,11 +98,11 @@ function Data() {
   //       name: product.PRDLST_NM,
   //       productListReportNo: product.PRDLST_REPORT_NO,
   //       productShapeConditionName: product.PRDT_SHAP_CD_NM,
-  //       functions: product.PRIMARY_FNCLTY,
+  //       primaryFunction: product.PRIMARY_FNCLTY,
   //       prmsDate: product.PRMS_DT,
-  //       rawMaterials: product.RAWMTRL_NM,
+  //       rawMaterial: product.RAWMTRL_NM,
   //       shape: product.SHAP,
-  //       standards: product.STDR_STND,
+  //       mainStandard: product.STDR_STND,
   //     },
   //   });
   // });

@@ -1,17 +1,17 @@
 import styled from "styled-components";
-import { logUserOut } from "../apollo";
-import Avatar from "../components/Avatar";
-import HomePart1 from "../components/home/homePart1";
-import HomePart2 from "../components/home/homePart2";
-import HomePart3 from "../components/home/homePart3";
-import { Divider } from "../components/shared";
+import { logUserOut } from "../../apollo";
+import Avatar from "../../components/Avatar";
+import HomePart1 from "../../components/home/homePart1";
+import HomePart2 from "../../components/home/homePart2";
+import HomePart3 from "../../components/home/homePart3";
+import { Divider } from "../../components/shared";
 
 //home4 dependency
 import { gql, useQuery } from "@apollo/client";
 
-const Container = styled.div`
+const Base = styled.div`
   width: 100%;
-  max-width: 1300px;
+  max-width: 1000px;
 
   margin: 0px auto;
 `;
@@ -139,8 +139,8 @@ function Home() {
   });
   console.log(data);
   return (
-    <div>
-      <Container>
+    <>
+      <Base>
         <HomePart1></HomePart1>
         <Divider></Divider>
         <HomePart2></HomePart2>
@@ -164,8 +164,8 @@ function Home() {
             </ProductCard>
           </ProductCardBox>
         </Home4>
-      </Container>
-    </div>
+      </Base>
+    </>
   );
 }
 export default Home;

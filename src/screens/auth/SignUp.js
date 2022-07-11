@@ -4,15 +4,15 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { darkModeVar, isLoggedInvar } from "../apollo";
-import AuthBottomBox from "../components/auth/AuthBottomBox";
-import AuthButton from "../components/auth/AuthButton";
-import AuthFormBox from "../components/auth/AuthFormBox";
-import AuthInput from "../components/auth/AuthInput";
-import AuthLayout from "../components/auth/AuthLayout";
-import Seperator from "../components/auth/Seperator";
-import PageTitle from "../components/pageTitle";
-import routes from "./routes";
+import { darkModeVar, isLoggedInvar } from "../../apollo";
+import AuthBottomBox from "../../components/auth/AuthBottomBox";
+import AuthButton from "../../components/auth/AuthButton";
+import AuthFormBox from "../../components/auth/AuthFormBox";
+import AuthInput from "../../components/auth/AuthInput";
+import AuthLayout from "../../components/auth/AuthLayout";
+import Seperator from "../../components/auth/Seperator";
+import PageTitle from "../../components/pageTitle";
+import routes from "../routes";
 
 const Subtitle = styled.h3`
   font-weight: 600;

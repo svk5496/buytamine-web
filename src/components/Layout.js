@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import Header from "./header/Header";
+import Header from "./home/Header";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 
 const Content = styled.main`
-  max-width: 1000px;
   margin: 0px auto;
   width: 100%;
 `;

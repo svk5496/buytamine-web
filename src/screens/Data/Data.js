@@ -25,10 +25,13 @@ const DownloadBox = styled.div`
   }
 `;
 
-const DownloadBt = styled.span`
+const DownloadBt = styled.div`
   margin-top: 30px;
   padding: 10px 20px;
   background-color: ${(props) => props.theme.primary};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const InputContainer = styled.div`
@@ -56,6 +59,21 @@ const SearchInput = styled.input`
     border-color: ${(props) => props.theme.primary};
   }
   -webkit-appearance: none;
+`;
+
+const StyledText = styled.span`
+  margin: 20px 0px;
+`;
+
+const UploadBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const UploadBt = styled(DownloadBt)`
+  margin-top: 0px;
+  background-color: ${(props) => props.theme.secondary};
+  color: white;
 `;
 
 const CREATE_PRODUCT_MUTATION = gql`
@@ -130,7 +148,7 @@ function Data() {
     setEndPoint(e.target.value);
   };
 
-  const handleClick = () => {
+  const handleDownloadClick = () => {
     fetch(
       `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/${serviceName}/json/${startPoint}/${endPoint}`
     )
@@ -142,14 +160,30 @@ function Data() {
   };
   console.log(amines);
 
-  amines.map((product) => {
-    const rawMaterials = product.RAWMTRL_NM.match(
-      /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w)α.%( -]+/g
-    );
-    console.log(rawMaterials);
+  const handleUploadClick = () => {
+    amines.map((product) => {
+      // RawMaterials
+      // const rawMaterials = product.RAWMTRL_NM.match(
+      //   /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w)α.%( -]+\([^)]*\)+|[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w)α.%( -]+\[(.*?)\]|[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w)α.%( -]+/g
+      // );
+      // rawMaterials.map((rawMaterial) => rawMaterial.replace(/\s/g, ""));
+      // console.log(rawMaterials);
+      // mainStandards
 
-    //console.log(product.PRIMARY_FNCLTY);
-  });
+      const mainStandards = product.STDR_STND.match(/[^\n|\r]+/g);
+      mainStandards.map((mainStandard) => {
+        const withOutSpace = mainStandard.replace(/\s/g, "");
+        const withOutNumber = withOutSpace.replace(
+          /\([^]\)+|^[0-9.)(]+|[⓪①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇*]+/g,
+          ""
+        );
+        let msArray = withOutNumber.match(/[^:]+/g);
+        console.log(msArray);
+      });
+    });
+
+    //setAmines([]);
+  };
 
   // products.map((product) => {
   //   console.log(product.RAWMTRL_NM);
@@ -188,7 +222,17 @@ function Data() {
           <SearchInput onBlur={handleEndPoint}></SearchInput>
         </InputContainer>
 
-        <DownloadBt onClick={handleClick}>다운로드</DownloadBt>
+        <DownloadBt onClick={handleDownloadClick}>
+          <span>다운로드</span>
+        </DownloadBt>
+        {amines.length > 1 ? (
+          <UploadBox>
+            <StyledText>업로드 준비완료!</StyledText>
+            <UploadBt onClick={handleUploadClick}>
+              <span>업로드</span>
+            </UploadBt>
+          </UploadBox>
+        ) : null}
       </DownloadBox>
       <DownloadBox></DownloadBox>
       <DownloadBox></DownloadBox>

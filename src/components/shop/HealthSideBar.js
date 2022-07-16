@@ -34,6 +34,10 @@ const MenuContainer = styled.div`
     cursor: pointer;
     text-decoration: none;
     color: inherit;
+    :hover {
+      transform: scale(1.1);
+      transition: ease-in-out 0.3s;
+    }
   }
 `;
 

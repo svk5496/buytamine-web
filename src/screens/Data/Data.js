@@ -162,27 +162,36 @@ function Data() {
 
   const handleUploadClick = () => {
     amines.map((product) => {
-      // RawMaterials
+      // RawMaterials;
       // const rawMaterials = product.RAWMTRL_NM.match(
       //   /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w)α.%( -]+\([^)]*\)+|[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w)α.%( -]+\[(.*?)\]|[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w)α.%( -]+/g
       // );
       // rawMaterials.map((rawMaterial) => rawMaterial.replace(/\s/g, ""));
       // console.log(rawMaterials);
-      // mainStandards
 
-      const mainStandards = product.STDR_STND.match(/[^\n|\r]+/g);
-      mainStandards.map((mainStandard) => {
-        const withOutSpace = mainStandard.replace(/\s/g, "");
-        const withOutNumber = withOutSpace.replace(
-          /\([^]\)+|^[0-9.)(]+|[⓪①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇*]+/g,
-          ""
-        );
-        let msArray = withOutNumber.match(/[^:]+/g);
-        console.log(msArray);
+      uploadProduct({
+        variables: {
+          brand: product.BSSH_NM,
+          howKeep: product.CSTDY_MTHD,
+          dispos: product.DISPOS,
+          intakeAttention: product.IFTKN_ATNT_MATR_CN,
+          lastUpdateDate: product.LAST_UPDT_DTM,
+          licenseNo: product.LCNS_NO,
+          howTake: product.NTK_MTHD,
+          expireDate: product.POG_DAYCNT,
+          name: product.PRDLST_NM,
+          productListReportNo: product.PRDLST_REPORT_NO,
+          productShapeConditionName: product.PRDT_SHAP_CD_NM,
+          primaryFunction: product.PRIMARY_FNCLTY,
+          prmsDate: product.PRMS_DT,
+          rawMaterial: product.RAWMTRL_NM,
+          shape: product.SHAP,
+          mainStandard: product.STDR_STND,
+        },
       });
     });
 
-    //setAmines([]);
+    setAmines([]);
   };
 
   // products.map((product) => {
